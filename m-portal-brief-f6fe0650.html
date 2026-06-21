@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 探索数字乐趣的简洁之窗</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      margin-bottom: 3rem;
+      padding: 2.8rem 2rem;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e7eaed;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: 0.02em;
+      color: #0f1c2e;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #5b677b;
+      max-width: 600px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #eef1f4;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #40536e;
+      border: 1px solid #dce1e7;
+    }
+
+    /* ===== 卡片通用 ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 1.6rem;
+      border: 1px solid #e3e7ec;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 550;
+      margin-bottom: 1rem;
+      color: #122235;
+    }
+
+    .card p {
+      color: #2d3b4f;
+      margin-bottom: 0.8rem;
+      font-size: 0.96rem;
+    }
+
+    .card ul {
+      list-style: none;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #2b3a50;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #7089a8;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eaf0f7;
+      padding: 0.2rem 0.75rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #2c4b6e;
+      margin-right: 0.4rem;
+    }
+
+    /* ===== 全宽卡片（人群/提示） ===== */
+    .full-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      border: 1px solid #e3e7ec;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.2rem;
+    }
+
+    .full-card h2 {
+      font-size: 1.35rem;
+      font-weight: 550;
+      margin-bottom: 1.2rem;
+      color: #112131;
+    }
+
+    .full-card .flex-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.6rem;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .flex-tags span {
+      background: #f0f3f7;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #273c55;
+      border: 1px solid #dee5ec;
+    }
+
+    .link-embed {
+      margin: 1.8rem 0 0.2rem;
+      font-size: 0.98rem;
+      background: #f6f9fd;
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .link-embed a {
+      color: #1d4e7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b7cbd9;
+    }
+
+    .link-embed a:hover {
+      color: #0a2a44;
+      border-bottom-color: #0a2a44;
+    }
+
+    /* ===== FAQ 摘要 ===== */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #e4e9ee;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+      margin-bottom: 2.4rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.2rem;
+      font-weight: 540;
+      margin-bottom: 1.2rem;
+      color: #102233;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eff2f6;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 510;
+      color: #1b3147;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #39506b;
+      font-size: 0.93rem;
+    }
+
+    /* ===== Footer ===== */
+    .footer-note {
+      text-align: center;
+      padding: 2rem 0 0.5rem;
+      color: #6b7c92;
+      font-size: 0.85rem;
+      border-top: 1px solid #e2e7ed;
+      margin-top: 2.2rem;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 680px) {
+      body { padding: 1.2rem 1rem; }
+      .hero { padding: 2rem 1.2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .card-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .full-card { padding: 1.6rem; }
+      .faq-mini { padding: 1.2rem; }
+    }
+
+    @media (min-width: 681px) and (max-width: 960px) {
+      .card-grid { gap: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===== HERO ===== -->
+  <div class="hero">
+    <h1>爱游戏 · 一份轻盈的陪伴</h1>
+    <p class="subhead">不是宏大叙事，而是每天多一点的游戏趣味。无论你热衷策略、模拟，还是只想在碎片时间里找点乐子，这里都有一隅安静角落。</p>
+    <div class="tagline">轻量与真诚 · 关于游戏的一切可能</div>
+  </div>
+
+  <!-- ===== 双栏卡片 ===== -->
+  <div class="card-grid">
+
+    <!-- 左侧：主视觉 / 内容速递 -->
+    <div class="card">
+      <h2>来自「爱游戏」的日常</h2>
+      <p>这里没有排行榜的喧嚣，也没有诱导分享的套路。每一篇文章、每一条推荐，都从真实的游玩体验出发——我们相信，好的游戏不需要过度包装。</p>
+      <p>从独立小品到经典重制，从冷门机制到多人同乐，<strong>爱游戏</strong> 更倾向于记录那些让人心头一亮的瞬间。</p>
+      <div style="margin-top:1rem;">
+        <span class="badge">独立推荐</span>
+        <span class="badge">实用技巧</span>
+        <span class="badge">设计漫谈</span>
+      </div>
+    </div>
+
+    <!-- 右侧：用途 / 场景卡片 -->
+    <div class="card">
+      <h2>可以在这些场景打开</h2>
+      <ul>
+        <li>通勤路上，翻阅一篇简练的游戏手记</li>
+        <li>周末午后，寻找一段未被关注的叙事小品</li>
+        <li>朋友聚会前，查一则可玩性高的合作清单</li>
+        <li>心情需要放松时，读点关于关卡的冷知识</li>
+      </ul>
+      <p style="margin-top:1rem; font-size:0.9rem; color:#516377;">没有时间压力，只有你与游戏的对话。</p>
+    </div>
+  </div>
+
+  <!-- ===== 全宽卡片：适合人群 ===== -->
+  <div class="full-card">
+    <h2>什么样的人会喜欢这里的氛围</h2>
+    <p>如果你也曾在通关后对着制作表发呆，或者因为一个小彩蛋而兴奋半天——那你大概率会在这里找到同类。</p>
+    <div class="flex-tags">
+      <span>🎮 休闲玩家</span>
+      <span>🧩 解谜爱好者</span>
+      <span>📖 叙事驱动型</span>
+      <span>🎧 背景音型玩家</span>
+      <span>🕹 复古控</span>
+      <span>🤝 联机社交派</span>
+    </div>
+    <p style="margin-top:1.2rem;">这里不区分核心或轻度，只在乎你是否享受那段沉浸的时光。</p>
+
+    <!-- 自然链接句子 -->
+    <div class="link-embed">
+      想了解更多日常更新与选题？可以直接去 <a href="https://m-portal-aiyouxi.com.cn">爱游戏</a> 看看，那里有更完整的索引和最新内容。
+    </div>
+  </div>
+
+  <!-- ===== FAQ 摘要 ===== -->
+  <div class="faq-mini">
+    <h3>几个你可能想问的 · 简短版</h3>
+    <div class="faq-item">
+      <div class="faq-q">「爱游戏」偏重什么类型？</div>
+      <div class="faq-a">没有严格分类。从像素风解谜到模拟建造，只要有温度的游戏都可能出现。推荐标准是「制作者用了心」。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容更新频率如何？</div>
+      <div class="faq-a">不算高频，但每篇都经过斟酌。我们希望发布的东西值得你花3到5分钟阅读，而不是制造信息噪音。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">需要注册或登录才能浏览吗？</div>
+      <div class="faq-a">完全不需要。打开 <a href="https://m-portal-aiyouxi.com.cn" style="color:#1d4e7a; text-decoration:underline;">爱游戏</a> 就能看到所有内容，没有隐藏门坎。</div>
+    </div>
+  </div>
+
+  <!-- ===== 一句话提示 + 自然链接 ===== -->
+  <div style="background:#ffffff; border-radius:24px; padding:1.6rem 2rem; border:1px solid #e3e7ec; margin-bottom:2rem;">
+    <p style="font-size:1rem; color:#1b3147; margin-bottom:0.3rem;">📌 一个小建议</p>
+    <p style="color:#39506b;">如果你恰好对某个玩法或设计产生好奇，不妨把 <a href="https://m-portal-aiyouxi.com.cn" style="color:#1d4e7a; text-decoration:underline;">爱游戏</a> 当作一个安静的资料夹——随时点开，随时离开，没有负担。</p>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <div class="footer-note">
+    由兴趣驱动 · 记录游戏带来的纯粹感受<br>
+    <span style="opacity:0.5;">— 简洁 温和 不打扰 —</span>
+  </div>
+
+</div>
+</body>
+</html>
