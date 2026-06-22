@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万博体育 · 故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f0eb;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            color: #2c3e2f;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #fdfaf7;
+            padding: 2.8rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(44, 62, 47, 0.07);
+            flex: 1;
+        }
+
+        /* 开场短句 */
+        .opening {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #6b7a6b;
+            border-left: 4px solid #b7c4b7;
+            padding-left: 1.2rem;
+            margin-bottom: 2.2rem;
+            font-style: italic;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            text-indent: 2em;
+        }
+
+        .intro-text strong {
+            font-weight: 600;
+            color: #3e5240;
+        }
+
+        .intro-text a {
+            color: #3e6b4a;
+            text-decoration: none;
+            border-bottom: 1px solid #b8cfb8;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #1e3b28;
+            border-bottom-color: #1e3b28;
+        }
+
+        /* 引用 / 提示框 */
+        .thought-box {
+            background: #f3f0ea;
+            border-left: 6px solid #7a9a7a;
+            padding: 1.5rem 1.8rem;
+            margin: 2.2rem 0;
+            border-radius: 0 14px 14px 0;
+            font-size: 1rem;
+            color: #3a4b3c;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .thought-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .thought-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .thought-box .quote-source {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #6d806d;
+            text-align: right;
+            font-style: normal;
+            letter-spacing: 1px;
+        }
+
+        /* 特点列表 — 温和卡片式 */
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .feature-list li {
+            background: #f9f6f1;
+            padding: 1.1rem 1.2rem;
+            border-radius: 14px;
+            border: 1px solid #e6ddd4;
+            transition: background 0.2s, border-color 0.2s;
+            font-size: 0.98rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .feature-list li:hover {
+            background: #f1ece4;
+            border-color: #c6d4c2;
+        }
+
+        .feature-list li::before {
+            content: "◈";
+            color: #7a9a7a;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px dashed #d6cfc5;
+            font-size: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .closing .signoff {
+            font-style: italic;
+            color: #5f6f5f;
+        }
+
+        .closing .signoff a {
+            color: #3e6b4a;
+            text-decoration: none;
+            border-bottom: 1px solid #cbdbc8;
+            transition: border-color 0.2s;
+        }
+
+        .closing .signoff a:hover {
+            border-bottom-color: #1e3b28;
+        }
+
+        .closing .meta {
+            font-size: 0.85rem;
+            color: #8d9e8a;
+        }
+
+        /* 小屏幕适配 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page-wrapper {
+                padding: 1.8rem 1.2rem;
+                border-radius: 14px;
+            }
+            .opening {
+                font-size: 1.3rem;
+                padding-left: 0.9rem;
+            }
+            .feature-list {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .feature-list li {
+                padding: 0.9rem 1rem;
+            }
+            .thought-box {
+                padding: 1.2rem 1.2rem;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .closing {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page-wrapper {
+                padding: 1.2rem 0.9rem;
+            }
+            .opening {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+            .intro-text {
+                font-size: 0.98rem;
+            }
+        }
+
+        /* 尾部留白 */
+        .footer-spacer {
+            height: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- 开场短句 -->
+        <div class="opening">
+            有些地方，值得你慢慢走进去。
+        </div>
+
+        <!-- 承接段落：从主题内容展开，生活化语气 -->
+        <div class="intro-text">
+            <p>几年前一个秋日的傍晚，朋友发来消息，说发现了一个叫<strong>万博体育</strong>的地方。起初我并未在意——毕竟日常里谈运动、聊赛事的人很多，但能让人真正放松下来、找到节奏的却不多。后来偶然点进去看了一眼，发现那里不只有比分和数据，还有一种难得的沉静感：界面干净，信息排列舒服，没有那些让人眼花缭乱的弹窗和催促。</p>
+            <p>渐渐地，我习惯了在饭后或周末的午后打开它，看看最新的动态，翻翻社区里的讨论。有人分享训练心得，有人讨论战术演变，也有纯粹的爱好者只是默默浏览。那种氛围很像小时候在旧书店里待着——不着急，不喧哗，但你知道这里藏着很多有意思的东西。如今每次和朋友聊起，我都会提到<strong><a href="https://vip-wanbo.com">万博体育</a></strong>，像推荐一家常去的茶馆，平淡却很安心。</p>
+        </div>
+
+        <!-- 引用块 / 提示框：温和地传递感受 -->
+        <div class="thought-box">
+            <p>“一个平台如果能让你忘记时间，那不是因为它有多热闹，而是因为它足够真诚。”</p>
+            <p>翻看那些赛事回顾和专栏文章时，总有些文字会让你停下来。没有夸张的标题，没有刻意的煽情，只是把运动本身的张力铺开给你看。这种克制，反而让喜欢变得长久。</p>
+            <div class="quote-source">—— 一位偶尔逛逛的读者</div>
+        </div>
+
+        <!-- 特点列表：温和、真实、克制 -->
+        <ul class="feature-list">
+            <li>赛事内容覆盖广，但主页始终保持清爽，不堆砌</li>
+            <li>讨论区氛围平和，少见争吵，多的是认真分析</li>
+            <li>界面配色舒服，长时间浏览眼睛不累</li>
+            <li>专栏文章有温度，不贩卖焦虑，只分享视角</li>
+            <li>更新节奏稳定，不靠轰炸式推送刷存在感</li>
+            <li>适合一个人安静地打开，也适合和朋友一起聊聊</li>
+        </ul>
+
+        <!-- 温和结尾：自然嵌入链接，无诱导点击 -->
+        <div class="closing">
+            <div class="signoff">
+                如果你也喜欢这种不赶时间的节奏，不妨去 <a href="https://vip-wanbo.com">万博体育</a> 看看，也许会有自己的发现。
+            </div>
+            <div class="meta">
+                —— 一个普通用户的笔记
+            </div>
+        </div>
+
+        <div class="footer-spacer"></div>
+    </div>
+</body>
+</html>
